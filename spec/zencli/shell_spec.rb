@@ -99,7 +99,8 @@ describe ZenCLI::Shell do
       ZenCLI::Shell.should_receive(:run_with_result_check).with(command,{}).and_return(response)
     }
 
-    subject{ ZenCLI::Shell.run_with_output(command) }
+    subject{ ZenCLI::Shell.run_without_output(command) }
+    it{expect(subject).to eq(response)}
   end
 
   describe '.run_with_result_check' do

@@ -1,9 +1,10 @@
 module ZenCLI
   class Log
 
+    @logfile = File.join(Dir.pwd, ".zencli-log")
+
     class << self
       attr_accessor :logfile
-      @logfile = File.join(Dir.pwd, ".zencli-log")
 
       def info(message, options={})
         output = ""
