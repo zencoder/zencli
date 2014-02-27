@@ -27,8 +27,9 @@ describe ZenCLI do
     end
 
     context 'with different logfile' do
-      before { ZenCLI::Log.logfile = File.join(Dir.pwd, ".zencli-test-log") }
-      it { expect(ZenCLI::Log.logfile).to eq(File.join(Dir.pwd, ".zencli-test-log")) }
+      before { ZenCLI::Log.logfile = File.join(Dir.pwd, "tmp", ".zencli-log") }
+      it { expect(ZenCLI::Log.logfile).to eq(File.join(Dir.pwd, "tmp", ".zencli-log")) }
+      it { expect(ZenCLI::Log.write('foo')).to be_true }
     end
   end
 end
